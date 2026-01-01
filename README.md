@@ -9,9 +9,6 @@ A fully client-side visual PDF maker built with vanilla HTML, CSS, and JavaScrip
 - Export real PDFs with selectable text
 - No backend, no login, works offline
 
-## Demo
-https://artres.in
-
 ## Tech
 - Vanilla JS
 - jsPDF

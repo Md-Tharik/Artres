@@ -92,6 +92,11 @@
       #toolbar {
     flex-direction: column;
     gap: 6px;
+
+    /*footer*/
+          body {
+  padding-bottom: 42px; /* space for footer */
+          }
 }
 
 .brand-row {
@@ -126,6 +131,32 @@
   font-size: 11px;
   opacity: 0.6;
   font-weight: 500;
+}
+#site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  background: #0b0b0b;
+  font-size: 14px;
+  z-index: 999;
+  border-top: 1px solid #1f1f1f;
+}
+
+#site-footer a {
+  color: #9ca3af;   /* neutral gray */
+  text-decoration: none;
+  margin: 0 4px;
+}
+
+#site-footer a:hover {
+  color: #ffffff;
+}
+
+#site-footer span {
+  color: #555;
 }
 
     </style>
@@ -510,8 +541,12 @@
     setTimeout(fitToScreen, 0);
 </script>
 
-<footer style="padding:20px;text-align:center;">
-  <a href="/pages/how-to-add-text-to-pdf.html">Blog</a>
+<footer id="site-footer">
+  <a href="/pages/about.html">About</a>
+  <span>·</span>
+  <a href="/pages/privacy.html">Privacy</a>
+  <span>·</span>
+  <a href="/pages/blog.html">Blog</a>
 </footer>
     
 </body>

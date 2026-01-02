@@ -8,4 +8,9 @@
     <priority>1.0</priority>
   </url>
 
+  <url>
+  <loc>https://artres.in/pages/how-to-add-text-to-pdf.html</loc>
+  <priority>0.8</priority>
+</url>
+
 </urlset>

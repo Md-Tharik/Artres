@@ -1,553 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<!-- Primary Meta -->
-<title>ARTRES Visual PDF Maker — Free Online PDF Designer</title>
-<link rel="icon" type="image/png" href="/favicon.png">
-<meta name="description" content="ARTRES Visual PDF Maker lets you create and edit PDFs visually. Add text, images, shapes, and export instantly — no login, fully client-side.">
-<meta name="keywords" content="pdf editor, visual pdf editor, free pdf editor, pdf designer, edit pdf online">
-<meta name="author" content="ARTRES">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://artres.in/">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARTRES — Under Maintenance</title>
 
-<!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="ARTRES Visual PDF Editor">
-<meta property="og:description" content="Create and edit PDFs visually. Add text, images, shapes, and export instantly. No login required.">
-<meta property="og:url" content="https://artres.in/">
-<meta property="og:image" content="https://artres.in/og-image.png">
+  <meta name="theme-color" content="#0b0b0b" />
+  <meta name="robots" content="noindex, nofollow" />
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ARTRES Visual PDF Editor">
-<meta name="twitter:description" content="A fast, visual PDF editor. Design PDFs directly in your browser.">
-<meta name="twitter:image" content="https://artres.in/og-image.png">
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --card: #121212;
+      --border: #2a2a2a;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #3b82f6;
+    }
 
-<!-- Mobile / Theme -->
-<meta name="theme-color" content="#0b0b0b">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime&family=Montserrat:wght@700&family=Playfair+Display:wght@700&family=Roboto:wght@400;700&family=Oswald:wght@500&family=Lobster&family=Open+Sans&family=Pacifico&display=swap" rel="stylesheet">
-    <style>
-    /* === FIX TEXT STROKE RENDERING === */
-.text-box {
-    -webkit-text-stroke-linejoin: round;
-    -webkit-text-stroke-linecap: round;
-    paint-order: stroke fill;
-}
-        :root { --bg: #0b0b0b; --panel: #121212; --border: #2a2a2a; --accent: #007bff; }
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        
-        body { margin: 0; background: var(--bg); color: #fff; font-family: 'Roboto', sans-serif; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        #toolbar { 
-            display: flex; gap: 10px; padding: 10px; background: var(--panel); border-bottom: 1px solid var(--border); 
-            overflow-x: auto; white-space: nowrap; flex-shrink: 0; z-index: 1000;
-        }
-        #toolbar button { flex: 0 0 auto; min-width: 80px; }
-        
-        #editor-container { flex: 1; overflow-y: auto; overflow-x: hidden; background: #1a1a1a; position: relative; }
-        #scaling-wrapper { transform-origin: top center; padding: 0 0 20px 0; display: flex; flex-direction: column; align-items: center; }
-        
-        .page { width: 595px; height: 842px; background: white; position: relative; box-shadow: 0 0 20px rgba(0,0,0,0.5); margin-bottom: 30px; flex-shrink: 0; }
-        .page.active-target { border: 4px solid var(--accent); }
-        
-        .element { position: absolute; border: 2px solid transparent; min-width: 30px; min-height: 30px; z-index: 10; touch-action: none; display: flex; }
-        .element.selected { border: 2px dashed var(--accent); z-index: 100; }
-        
-        /* Fixed image scaling style */
-        .element[data-type="image"] img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+    body {
+      height: 100vh;
+      background: radial-gradient(ellipse at top, #111 0%, #000 60%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
 
-        .text-box { 
-            color: black; outline: none; padding: 4px; white-space: nowrap; font-size: 24px; 
-            width: 100%; height: auto; user-select: text; -webkit-user-select: text;
-            overflow: visible; display: block; min-width: 20px;
-        }
-        .text-box:empty:before { content: 'Type here...'; color: #ccc; pointer-events: none; }
-        
-        .shape { width: 100%; height: 100%; background: #007bff; }
-        
-        .handle { width: 36px; height: 36px; background: var(--accent); position: absolute; border-radius: 50%; display: none; z-index: 200; border: 3px solid white; }
-        .element.selected .handle { display: flex; align-items: center; justify-content: center; color: white; }
-        .resizer { right: -18px; bottom: -18px; cursor: nwse-resize; }
-        .deleter { right: -18px; top: -18px; background: #ff4d4d; font-weight: bold; font-size: 20px; }
-        .rotator { left: 50%; top: -50px; transform: translateX(-50%); background: #28a745; }
+    .card {
+      max-width: 420px;
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
 
-        #bottom-panel { background: var(--panel); border-top: 1px solid var(--border); padding-bottom: env(safe-area-inset-bottom); z-index: 1000; }
-        .tabs { display: flex; }
-        .tab-btn { flex: 1; padding: 15px; background: none; border: none; color: #888; font-weight: bold; font-size: 11px; }
-        .tab-btn.active { color: var(--accent); border-bottom: 2px solid var(--accent); }
-        .tab-content { padding: 12px; display: none; gap: 15px; overflow-x: auto; align-items: center; }
-        .tab-content.active { display: flex; }
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
 
-        .control-group { display: flex; flex-direction: column; gap: 5px; font-size: 9px; color: #888; text-transform: uppercase; }
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
 
-        button { background: #252525; color: white; border: 1px solid var(--border); padding: 10px 15px; border-radius: 8px; font-size: 14px; }
-        .export-btn { background: var(--accent); font-weight: bold; }
-        .reset-btn { background: #331111; color: #ff4d4d; }
-        
-      #toolbar {
-    flex-direction: column;
-    gap: 6px;
+    h1 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
 
-    /*footer*/
-          body {
-  padding-bottom: 42px; /* space for footer */
-          }
-}
+    p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
 
-.brand-row {
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 0.4px;
-    opacity: 0.85;
-    padding-left: 4px;
-}
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
 
-.tool-row {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-}
-        .brand-row {
-    margin-bottom: 6px;
-}
-.brand-row {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-}
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
 
-.brand-name {
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-}
+    @keyframes pulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
 
-.brand-desc {
-  font-size: 11px;
-  opacity: 0.6;
-  font-weight: 500;
-}
-#site-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 10px 0;
-  text-align: center;
-  background: #0b0b0b;
-  font-size: 14px;
-  z-index: 999;
-  border-top: 1px solid #1f1f1f;
-}
+    footer {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 10px;
+    }
 
-#site-footer a {
-  color: #9ca3af;   /* neutral gray */
-  text-decoration: none;
-  margin: 0 4px;
-}
-
-#site-footer a:hover {
-  color: #ffffff;
-}
-
-#site-footer span {
-  color: #555;
-}
-
-    </style>
+    footer span {
+      margin: 0 6px;
+    }
+  </style>
 </head>
 <body>
-<div id="toolbar">
-<div class="brand-row">
-  <span class="brand-name">ARTRES</span>
-  <span class="brand-desc">Visual PDF Maker</span>
-</div>
-    <div class="tool-row">
-        <button onclick="addText()">+ Text</button>
-        <button onclick="document.getElementById('imgInput').click()">+ Image</button>
-        <button onclick="addShape('rect')">Rect</button>
-        <button onclick="addShape('circle')">Circle</button>
-        <button onclick="undo()">Undo ↩</button>
-        <button class="reset-btn" onclick="clearAllData()">Reset 🗑</button>
-        <button class="export-btn" onclick="exportPDF()">EXPORT PDF</button>
+  <div class="card">
+    <div class="logo">ARTRES</div>
+    <div class="tagline">Visual PDF Maker</div>
+
+    <div class="status">
+      <div class="dot"></div>
+      Maintenance in progress
     </div>
-</div>
 
-<div id="editor-container">
-    <div id="scaling-wrapper">
-        <div id="pages-container"></div>
-    </div>
-</div>
+    <h1>We’re fixing bugs & adding new features</h1>
 
-<div id="bottom-panel">
-    <div class="tabs">
-        <button class="tab-btn active" onclick="showTab('style')">STYLE</button>
-        <button class="tab-btn" onclick="showTab('edit')">EDIT</button>
-        <button class="tab-btn" onclick="showTab('page')">PAGE</button>
-    </div>
-    <div id="style" class="tab-content active">
-        <div class="control-group">Color<input type="color" id="colorPicker" oninput="updateElement()"></div>
-        <div class="control-group">Size<input type="number" id="fontSize" style="width:50px" value="24" oninput="updateElement()"></div>
-        <div class="control-group">Stroke<input type="range" id="strokeWeight" min="0" max="4" step="0.2" value="0" oninput="updateElement()"></div>
-        <div class="control-group">Str Color<input type="color" id="strokeColor" value="#000000" oninput="updateElement()"></div>
-        <div class="control-group">Font
-            <select id="fontFamily" onchange="updateElement()">
-                <option value="'Roboto', sans-serif">Roboto</option>
-                <option value="'Playfair Display', serif">Playfair</option>
-                <option value="'Montserrat', sans-serif">Montserrat</option>
-                <option value="'Bebas Neue', cursive">Bebas Neue</option>
-                <option value="'Oswald', sans-serif">Oswald</option>
-                <option value="'Lobster', cursive">Lobster</option>
-                <option value="'Pacifico', cursive">Pacifico</option>
-                <option value="'Courier Prime', monospace">Courier</option>
-                <option value="'Open Sans', sans-serif">Open Sans</option>
-                <option value="Helvetica, Arial, sans-serif">Helvetica</option>
-                <option value="'Times New Roman', serif">Times</option>
-            </select>
-        </div>
-    </div>
-    <div id="edit" class="tab-content">
-        <button onclick="duplicateSelected()">Duplicate</button>
-        <button onclick="moveLayer(1)">Bring Front</button>
-        <button onclick="moveLayer(-1)">Send Back</button>
-    </div>
-    <div id="page" class="tab-content">
-        <button onclick="addNewPage()">+ New Page</button>
-    </div>
-</div>
+    <p>
+      ARTRES is temporarily unavailable while we fix critical bugs and improve
+      stability.  
+      We’ll be back shortly with a smoother, more reliable experience.
+    </p>
 
-<input type="file" id="imgInput" hidden accept="image/*" onchange="handleImage(this)">
+    <p>
+      Thanks for your patience 🙏  
+      Your PDFs deserve better tools.
+    </p>
 
-<script>
-    const { jsPDF } = window.jspdf;
-    let selected = null, activePage = null, history = [];
-    const container = document.getElementById('pages-container');
-    const STORAGE_KEY = 'pdf_editor_v4.2';
-
-    function saveToDisk() { localStorage.setItem(STORAGE_KEY, container.innerHTML); }
-    function loadFromDisk() {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved) { container.innerHTML = saved; rebindAll(); setActivePage(container.firstChild); } 
-        else { addNewPage(); }
-    }
-    function clearAllData() { if(confirm("Clear Everything?")) { localStorage.removeItem(STORAGE_KEY); location.reload(); } }
-
-    function saveState() {
-        history.push(container.innerHTML);
-        if(history.length > 20) history.shift();
-        saveToDisk();
-    }
-
-    function undo() {
-        if(history.length > 0) { container.innerHTML = history.pop(); rebindAll(); saveToDisk(); }
-    }
-
-    function setActivePage(pageEl) {
-        if(!pageEl) return;
-        document.querySelectorAll('.page').forEach(p => p.classList.remove('active-target'));
-        activePage = pageEl;
-        activePage.classList.add('active-target');
-    }
-
-    function addNewPage() {
-        const page = document.createElement('div');
-        page.className = 'page';
-        page.onclick = (e) => { setActivePage(page); if(e.target === page) deselect(); };
-        container.appendChild(page);
-        setActivePage(page);
-        fitToScreen();
-        saveState();
-    }
-
-    function fitToScreen() {
-    const toolbarH = document.getElementById('toolbar').offsetHeight;
-    const bottomH = document.getElementById('bottom-panel').offsetHeight;
-
-    const availableH = window.innerHeight - toolbarH - bottomH - 20;
-
-    const scaleW = (window.innerWidth - 20) / 595;
-    const scaleH = availableH / 842;
-
-    const scale = Math.min(scaleW, scaleH, 1);
-
-    document.getElementById('scaling-wrapper').style.transform = `scale(${scale})`;
-}
-
-    function deselect() {
-        if(selected) {
-            selected.classList.remove('selected');
-            const txt = selected.querySelector('.text-box');
-            if(txt) txt.blur();
-        }
-        selected = null;
-    }
-
-    function select(el) {
-        if(selected === el) return;
-        deselect();
-        selected = el;
-        el.classList.add('selected');
-        setActivePage(el.closest('.page'));
-    }
-
-    function bindEvents(el) {
-        let isDragging = false, startX, startY, startL, startT, lastTap = 0;
-
-        el.onpointerdown = (e) => {
-            if(e.target.classList.contains('handle')) return;
-            const currentTime = new Date().getTime();
-            
-            if (currentTime - lastTap < 300 && el.dataset.type === 'text') {
-                const txt = el.querySelector('.text-box');
-                txt.focus();
-                setTimeout(() => { document.execCommand('selectAll', false, null); }, 10);
-                return; 
-            }
-            lastTap = currentTime;
-
-            select(el);
-            if(document.activeElement === el.querySelector('.text-box')) return;
-            isDragging = true;
-            startX = e.clientX; startY = e.clientY;
-            startL = parseInt(el.style.left) || 0;
-            startT = parseInt(el.style.top) || 0;
-            el.setPointerCapture(e.pointerId);
-            e.preventDefault();
-        };
-
-        el.onpointermove = (e) => {
-            if(!isDragging) return;
-            const scale = (window.innerWidth - 20) / 595;
-            el.style.left = startL + (e.clientX - startX) / scale + 'px';
-            el.style.top = startT + (e.clientY - startY) / scale + 'px';
-        };
-
-        el.onpointerup = () => { if(isDragging) saveState(); isDragging = false; };
-
-        // UPDATED FIXED RESIZER
-        el.querySelector('.resizer').onpointerdown = (e) => {
-            e.stopPropagation(); e.preventDefault();
-            const startW = el.offsetWidth, startH = el.offsetHeight;
-            const sX = e.clientX, sY = e.clientY;
-            const scale = (window.innerWidth - 20) / 595;
-            const txt = el.querySelector('.text-box');
-            let startFS = txt ? parseFloat(txt.style.fontSize) : 0;
-
-            const onMove = (me) => {
-                const diffX = (me.clientX - sX) / scale;
-                const diffY = (me.clientY - sY) / scale;
-                const newW = Math.max(20, startW + diffX);
-                
-                if(el.dataset.type === 'text') {
-                    const ratio = newW / startW;
-                    const newFS = Math.max(8, startFS * ratio);
-                    txt.style.fontSize = newFS + 'px';
-                    document.getElementById('fontSize').value = Math.round(newFS);
-                } else {
-                    // This now correctly resizes images and shapes!
-                    el.style.width = newW + 'px';
-                    el.style.height = Math.max(20, startH + diffY) + 'px';
-                }
-            };
-            const onUp = () => { saveState(); document.removeEventListener('pointermove', onMove); };
-            document.addEventListener('pointermove', onMove);
-            document.addEventListener('pointerup', onUp, {once:true});
-        };
-
-        el.querySelector('.rotator').onpointerdown = (e) => {
-            e.stopPropagation();
-            const rect = el.getBoundingClientRect(), cX = rect.left + rect.width/2, cY = rect.top + rect.height/2;
-            const onMove = (me) => {
-                let angle = Math.atan2(me.clientY - cY, me.clientX - cX) * 180 / Math.PI + 90;
-                [0, 90, 180, 270].forEach(t => { if(Math.abs(angle-t) < 10) angle = t; });
-                el.style.transform = `rotate(${Math.round(angle)}deg)`;
-            };
-            document.addEventListener('pointermove', onMove);
-            document.addEventListener('pointerup', () => { saveState(); document.removeEventListener('pointermove', onMove); }, {once:true});
-        };
-
-        el.querySelector('.deleter').onclick = (e) => { e.stopPropagation(); el.remove(); selected = null; saveState(); };
-        
-        const txt = el.querySelector('.text-box');
-        if(txt) {
-            txt.oninput = () => { saveToDisk(); };
-            txt.onblur = () => saveState();
-        }
-    }
-
-    function createBaseElement(type) {
-        const el = document.createElement('div');
-        el.className = 'element'; el.style.left = '100px'; el.style.top = '100px';
-        el.dataset.type = type;
-        el.innerHTML = `<div class="handle resizer"></div><div class="handle deleter">×</div><div class="handle rotator">↻</div>`;
-        bindEvents(el);
-        return el;
-    }
-
-    function addText() {
-        const el = createBaseElement('text');
-        const txt = document.createElement('div');
-        txt.className = 'text-box'; txt.contentEditable = true; txt.innerText = "Double Tap to Edit";
-        txt.style.fontSize = "32px";
-        el.prepend(txt); (activePage || container.lastChild).appendChild(el);
-        select(el); saveState();
-    }
-
-    function addShape(type) {
-        const el = createBaseElement(type);
-        const shp = document.createElement('div'); shp.className = 'shape';
-        shp.style.backgroundColor = document.getElementById('colorPicker').value;
-        if(type === 'circle') shp.style.borderRadius = '50%';
-        el.style.width = '100px'; el.style.height = '100px';
-        el.prepend(shp); (activePage || container.lastChild).appendChild(el);
-        select(el); saveState();
-    }
-
-    function handleImage(input) {
-        if(!input.files[0]) return;
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const el = createBaseElement('image');
-            const img = document.createElement('img'); img.src = e.target.result;
-            el.style.width = '200px'; el.style.height = '200px'; // Set a default initial size
-            el.prepend(img); (activePage || container.lastChild).appendChild(el);
-            select(el); saveState();
-        };
-        reader.readAsDataURL(input.files[0]);
-    }
-
-    function updateElement() {
-        if(!selected) return;
-        const col = document.getElementById('colorPicker').value;
-        const size = document.getElementById('fontSize').value;
-        const weight = document.getElementById('strokeWeight').value;
-        const sCol = document.getElementById('strokeColor').value;
-        
-        if(selected.dataset.type === 'text') {
-            const t = selected.querySelector('.text-box');
-            t.style.fontSize = size + 'px';
-            t.style.color = col;
-            t.style.fontFamily = document.getElementById('fontFamily').value;
-            t.style.webkitTextStroke = `${weight}px ${sCol}`;
-        } else if(selected.querySelector('.shape')) {
-            const s = selected.querySelector('.shape');
-            s.style.backgroundColor = col;
-            s.style.border = `${weight}px solid ${sCol}`;
-        }
-        saveToDisk();
-    }
-
-    function duplicateSelected() {
-        if(!selected) return;
-        const clone = selected.cloneNode(true);
-        clone.style.left = (parseInt(selected.style.left) + 20) + 'px';
-        clone.classList.remove('selected');
-        selected.parentNode.appendChild(clone);
-        bindEvents(clone); saveState();
-    }
-
-    function moveLayer(dir) {
-        if(!selected) return;
-        selected.style.zIndex = (parseInt(selected.style.zIndex) || 10) + dir;
-        saveToDisk();
-    }
-
-    function showTab(id) {
-        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        event.currentTarget.classList.add('active');
-    }
-
-    function rebindAll() {
-        document.querySelectorAll('.element').forEach(bindEvents);
-        document.querySelectorAll('.page').forEach(page => {
-            page.onclick = (e) => { setActivePage(page); if(e.target === page) deselect(); };
-        });
-    }
-
-    async function exportPDF() {
-        deselect();
-        const pdf = new jsPDF('p', 'pt', 'a4');
-        const pages = document.querySelectorAll('.page');
-        for(let i=0; i<pages.length; i++) {
-            if(i > 0) pdf.addPage();
-            const els = pages[i].querySelectorAll('.element');
-            for(let el of els) {
-                const x = parseFloat(el.style.left), y = parseFloat(el.style.top);
-                const w = el.offsetWidth, h = el.offsetHeight;
-                const tr = el.style.transform;
-                const rot = tr ? parseFloat(tr.replace(/[^\d.-]/g, '')) : 0;
-
-               if (el.dataset.type === 'text') {
-    const txt = el.querySelector('.text-box');
-
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-
-    const fontSize = parseInt(txt.style.fontSize);
-    const font = `${fontSize}px ${txt.style.fontFamily}`;
-
-    ctx.font = font;
-    const metrics = ctx.measureText(txt.innerText);
-    canvas.width = metrics.width + 20;
-    canvas.height = fontSize * 1.5;
-
-    ctx.font = font;
-    ctx.fillStyle = txt.style.color;
-    ctx.textBaseline = 'top';
-
-    const strokeW = parseFloat(txt.style.webkitTextStrokeWidth || 0);
-    const strokeC = txt.style.webkitTextStrokeColor;
-
-    if (strokeW > 0) {
-        ctx.lineWidth = strokeW * 2;
-        ctx.strokeStyle = strokeC;
-        ctx.strokeText(txt.innerText, 10, 5);
-    }
-
-    ctx.fillText(txt.innerText, 10, 5);
-
-    pdf.addImage(
-        canvas.toDataURL('image/png'),
-        'PNG',
-        x,
-        y,
-        canvas.width * 0.75,
-        canvas.height * 0.75,
-        null,
-        'FAST',
-        rot
-    );
-} 
-                 else {
-                    const shp = el.querySelector('.shape');
-                    pdf.setFillColor(shp.style.backgroundColor);
-                    if(el.dataset.type === 'rect') pdf.rect(x, y, w, h, 'F');
-                    else pdf.ellipse(x + w/2, y + h/2, w/2, h/2, 'F');
-                }
-            }
-        }
-        pdf.save("document_v4.2.pdf");
-    }
-
-    loadFromDisk();
-    window.addEventListener('resize', fitToScreen);
-    setTimeout(fitToScreen, 0);
-</script>
-
-<footer id="site-footer">
-  <a href="/pages/about.html">About</a>
-  <span>·</span>
-  <a href="/pages/privacy.html">Privacy</a>
-  <span>·</span>
-  <a href="/pages/blog.html">Blog</a>
-</footer>
-    
+    <footer>
+      © 2026 ARTRES
+      <span>·</span>
+      Back soon
+    </footer>
+  </div>
 </body>
 </html>

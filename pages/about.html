@@ -1,14 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>About ARTRES</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — ARTRES</title>
+  <meta name="description" content="About ARTRES Visual PDF Maker — a free, privacy-first online PDF design tool." />
+  <style>
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0b0b0b;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-size: 20px;
+      margin-top: 32px;
+    }
+    a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+    footer {
+      margin-top: 48px;
+      font-size: 14px;
+      color: #9ca3af;
+    }
+  </style>
 </head>
 <body>
-<h1>About ARTRES</h1>
-<p>
-ARTRES is a free visual PDF editor that works fully in your browser.
-No login. No uploads. No tracking.
-</p>
+  <div class="container">
+    <h1>About ARTRES</h1>
+
+    <p>
+      <strong>ARTRES</strong> is a free, browser-based visual PDF maker designed to let you
+      create and edit PDFs visually — without signups, uploads, or friction.
+    </p>
+
+    <p>
+      Unlike traditional PDF tools that feel technical or restrictive, ARTRES focuses on
+      a canvas-style editing experience where you can freely place text, images, and shapes
+      exactly how you want.
+    </p>
+
+    <h2>Why ARTRES exists</h2>
+    <p>
+      Most online PDF editors are either locked behind paywalls, require accounts,
+      or upload your files to external servers.
+    </p>
+
+    <p>
+      ARTRES was built with a simple idea:
+      <br />
+      <strong>PDF creation should be fast, visual, and private.</strong>
+    </p>
+
+    <h2>Privacy-first by design</h2>
+    <p>
+      ARTRES runs entirely in your browser.
+      Your files stay on your device and are never uploaded to any server.
+    </p>
+
+    <h2>Free to use</h2>
+    <p>
+      ARTRES is free to use and accessible to everyone.
+      No accounts, no subscriptions, and no hidden restrictions.
+    </p>
+
+    <footer>
+      © <span id="year"></span> ARTRES
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

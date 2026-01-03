@@ -1,20 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>ARTRES Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Blog — ARTRES</title>
+  <meta name="description" content="ARTRES Blog — tips, guides, and updates about visual PDF editing." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0b0b0b;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 720px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    p {
+      color: #9ca3af;
+      margin-bottom: 24px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 16px;
+      padding: 16px;
+      background: #111;
+      border-radius: 8px;
+    }
+    a {
+      color: #7dd3fc;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 48px;
+      font-size: 14px;
+      color: #9ca3af;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h1>ARTRES Blog</h1>
+    <p>Guides, tips, and updates about visual PDF editing.</p>
 
-<h1>ARTRES Blog</h1>
+    <ul>
+      <li>
+        <a href="./how-to-add-text-to-pdf.html">
+          How to Add Text to a PDF Online (Free, No Login)
+        </a>
+      </li>
+    </ul>
 
-<ul>
-  <li>
-    <a href="./how-to-add-text-to-pdf.html">
-      Add Text to PDF Online (Free)
-    </a>
-  </li>
-</ul>
+    <footer>
+      © <span id="year"></span> ARTRES
+    </footer>
+  </div>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

@@ -73,18 +73,17 @@
         #editor-container { flex: 1; overflow-y: auto; overflow-x: visible; background: #1a1a1a; position: relative; }
         #scaling-wrapper { transform-origin: top center; padding: 0 0 20px 0; display: flex; flex-direction: column; align-items: center; }
         
-        .page {
-  width: 595px;
-  height: 842px;
-  background: white;
-  position: relative;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  margin-bottom: 30px;
-  flex-shrink: 0;
-
-  overflow: visible; /* 🔥 THIS FIXES THE CUT-OFF */
-}
-
+        .page { 
+    width: 595px; 
+    height: 842px; 
+    background: white; 
+    position: relative; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); 
+    margin-bottom: 30px; 
+    flex-shrink: 0; 
+    overflow: hidden; /* ADD THIS LINE */
+        }
+        
 .page.active-target {
   border: 4px solid var(--accent);
 }
